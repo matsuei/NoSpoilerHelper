@@ -23,6 +23,7 @@
 		376551F8279CF14F004577E3 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 376551F7279CF14F004577E3 /* popup.css */; };
 		376551FA279CF14F004577E3 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 376551F9279CF14F004577E3 /* popup.js */; };
 		376551FE279CF14F004577E3 /* SafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 376551E6279CF14F004577E3 /* SafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		37655204279CF252004577E3 /* Item+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37655203279CF252004577E3 /* Item+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		376551F7279CF14F004577E3 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		376551F9279CF14F004577E3 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		376551FB279CF14F004577E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37655203279CF252004577E3 /* Item+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				376551D8279CF0F1004577E3 /* Persistence.swift */,
 				376551DA279CF0F1004577E3 /* NoSpoilerHelper.xcdatamodeld */,
 				376551D5279CF0F1004577E3 /* Preview Content */,
+				37655203279CF252004577E3 /* Item+Extension.swift */,
 			);
 			path = NoSpoilerHelper;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37655204279CF252004577E3 /* Item+Extension.swift in Sources */,
 				376551D9279CF0F1004577E3 /* Persistence.swift in Sources */,
 				376551D2279CF0F1004577E3 /* ContentView.swift in Sources */,
 				376551D0279CF0F1004577E3 /* NoSpoilerHelperApp.swift in Sources */,
