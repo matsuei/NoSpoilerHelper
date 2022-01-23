@@ -24,6 +24,7 @@
 		376551FA279CF14F004577E3 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 376551F9279CF14F004577E3 /* popup.js */; };
 		376551FE279CF14F004577E3 /* SafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 376551E6279CF14F004577E3 /* SafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		37655204279CF252004577E3 /* Item+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37655203279CF252004577E3 /* Item+Extension.swift */; };
+		37655205279CF7A8004577E3 /* NoSpoilerHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 376551DA279CF0F1004577E3 /* NoSpoilerHelper.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				376551E9279CF14F004577E3 /* SafariWebExtensionHandler.swift in Sources */,
+				37655205279CF7A8004577E3 /* NoSpoilerHelper.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
