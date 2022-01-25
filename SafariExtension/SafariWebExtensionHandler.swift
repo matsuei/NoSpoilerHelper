@@ -12,8 +12,8 @@ import CoreData
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     private var persistentContainer: NSPersistentContainer {
-        let container = NSPersistentContainer(name: "Collect")
-        let storeURL = URL.storeURL(for: "group.swiftlee.core.data", databaseName: "Coyote")
+        let container = NSPersistentContainer(name: "NoSpoilerHelper")
+        let storeURL = URL.storeURL(for: "group.swiftlee.core.data", databaseName: "NoSpoilerHelper")
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         container.persistentStoreDescriptions = [storeDescription]
         return container
@@ -28,7 +28,6 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         do {
             // FIXME: データの取得がうまく行ってないので注意
             let items = try persistentContainer.viewContext.fetch(fetch) as! [Item]
-//            context.completeRequest(returningItems: [response], completionHandler: nil)
         } catch {
             fatalError("\(error)")
         }
