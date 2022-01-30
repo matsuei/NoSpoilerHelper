@@ -13,9 +13,14 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     private var persistentContainer: NSPersistentContainer {
         let container = NSPersistentContainer(name: "NoSpoilerHelper")
-        let storeURL = URL.storeURL(for: "group.swiftlee.core.data", databaseName: "NoSpoilerHelper")
+        let storeURL = URL.storeURL(for: "group.app.kenta.nospoiler.extension", databaseName: "NoSpoilerHelper")
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         container.persistentStoreDescriptions = [storeDescription]
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
         return container
     }
 
@@ -26,20 +31,16 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         do {
-            // FIXME: データの取得がうまく行ってないので注意
             let items = try persistentContainer.viewContext.fetch(fetch) as! [Item]
-        } catch {
-            fatalError("\(error)")
-        }
-        let body: Dictionary<String, String> = ["type": "body"]
-        do {
+            let words = items.map({$0.word!})
+            let body: Dictionary<String, Array<String>> = ["words": words]
             let data = try JSONEncoder().encode(body)
             let json = String(data: data, encoding: .utf8) ?? ""
             let extensionItem = NSExtensionItem()
             extensionItem.userInfo = [ SFExtensionMessageKey: json ]
             context.completeRequest(returningItems: [extensionItem], completionHandler: nil)
         } catch {
-            print("error")
+            fatalError("\(error)")
         }
     }
 

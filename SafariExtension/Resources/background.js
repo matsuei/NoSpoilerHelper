@@ -4,7 +4,7 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         browser.runtime.sendNativeMessage("application.id", {message: "Hello from background page"}, function(response) {
             if (response) {
                 const obj = JSON.parse(response);
-                if (obj.type) {
+                if (obj.words) {
                     sendResponse(obj);
                 }
                 

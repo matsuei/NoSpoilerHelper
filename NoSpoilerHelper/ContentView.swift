@@ -45,7 +45,7 @@ struct ContentView: View {
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
-            newItem.word = "Word"
+            newItem.word = "word"
 
             do {
                 try viewContext.save()
