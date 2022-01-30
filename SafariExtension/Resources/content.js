@@ -1,4 +1,4 @@
-function replaceEngineerToBlank(node) {
+function replaceWordsToBlank(words, node) {
     switch (node.nodeType)
     {
         case Node.ELEMENT_NODE:
@@ -11,29 +11,33 @@ function replaceEngineerToBlank(node) {
             var next = undefined;
             while (child) {
                 next = child.nextSibling;
-                replaceEngineerToBlank(child);
+                replaceWordsToBlank(words, child);
                 child = next;
             }
             break;
         case Node.TEXT_NODE:
-            replaceTextInTextNode(node);
+            replaceWordsInTextNode(words, node);
             break;
     }
 }
  
-function replaceTextInTextNode(textNode) {
+function replaceWordsInTextNode(words, textNode) {
     if (textNode.nodeType !== Node.TEXT_NODE)
         return;
     
     if (!textNode.nodeValue.length)
         return;
     
-    var enginner = new RegExp("エンジニア", "gi");
-    var nodeValue = textNode.nodeValue;
-    var newNodeValue = nodeValue.replace(enginner, "");
+    if (words.length == 0) return;
     
-    if (nodeValue !== newNodeValue) {
-        textNode.nodeValue = newNodeValue;
+    for (let i = 0; i < words.length; i++) {
+        var enginner = new RegExp(words[i], "gi");
+        var nodeValue = textNode.nodeValue;
+        var newNodeValue = nodeValue.replace(enginner, "");
+        
+        if (nodeValue !== newNodeValue) {
+            textNode.nodeValue = newNodeValue;
+        }
     }
 }
 
@@ -41,8 +45,7 @@ browser.runtime.sendMessage({
     type: "content"
 },
     function(response) {
-//    replaceEngineerToBlank(document.body);
-    if (response.type) {
-        replaceEngineerToBlank(document.body);
+    if (response.words) {
+        replaceWordsToBlank(response.words, document.body);
     }
 });

@@ -71,6 +71,8 @@
 		376551F9279CF14F004577E3 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		376551FB279CF14F004577E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37655203279CF252004577E3 /* Item+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Extension.swift"; sourceTree = "<group>"; };
+		3765520627A57D33004577E3 /* NoSpoilerHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoSpoilerHelper.entitlements; sourceTree = "<group>"; };
+		3765520727A57D3D004577E3 /* SafariExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SafariExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		376551CE279CF0F1004577E3 /* NoSpoilerHelper */ = {
 			isa = PBXGroup;
 			children = (
+				3765520627A57D33004577E3 /* NoSpoilerHelper.entitlements */,
 				376551CF279CF0F1004577E3 /* NoSpoilerHelperApp.swift */,
 				376551D1279CF0F1004577E3 /* ContentView.swift */,
 				376551D3279CF0F1004577E3 /* Assets.xcassets */,
@@ -134,6 +137,7 @@
 		376551E7279CF14F004577E3 /* SafariExtension */ = {
 			isa = PBXGroup;
 			children = (
+				3765520727A57D3D004577E3 /* SafariExtension.entitlements */,
 				376551E8279CF14F004577E3 /* SafariWebExtensionHandler.swift */,
 				376551FB279CF14F004577E3 /* Info.plist */,
 				376551EA279CF14F004577E3 /* Resources */,
@@ -414,6 +418,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NoSpoilerHelper/NoSpoilerHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NoSpoilerHelper/Preview Content\"";
@@ -444,6 +449,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NoSpoilerHelper/NoSpoilerHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NoSpoilerHelper/Preview Content\"";
@@ -471,6 +477,7 @@
 		37655200279CF14F004577E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SafariExtension/SafariExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JACB4GSV36;
@@ -501,6 +508,7 @@
 		37655201279CF14F004577E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SafariExtension/SafariExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JACB4GSV36;
