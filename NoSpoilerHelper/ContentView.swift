@@ -15,6 +15,8 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.createdAt, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    @State private var showingModal = false
 
     var body: some View {
         NavigationView {
@@ -33,9 +35,15 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button {
+                        self.showingModal = true
+                    } label: {
                         Label("Add Item", systemImage: "plus")
                     }
+                    .sheet(isPresented: $showingModal) {
+                        AddWordView()
+                                        .environment(\.managedObjectContext, viewContext)
+                                }
                 }
             }
             Text("Select an item")
