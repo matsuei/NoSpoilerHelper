@@ -34,9 +34,8 @@ function replaceWordsInTextNode(words, textNode) {
         var enginner = new RegExp(words[i], "gi");
         var nodeValue = textNode.nodeValue;
         var newNodeValue = nodeValue.replace(enginner, "");
-        
         if (nodeValue !== newNodeValue) {
-            textNode.nodeValue = newNodeValue;
+            textNode.remove();
         }
     }
 }
