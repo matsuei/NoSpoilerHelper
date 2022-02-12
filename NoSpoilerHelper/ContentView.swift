@@ -17,6 +17,7 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     @State private var showingModal = false
+    @State private var showingHowToUse = false
 
     var body: some View {
         NavigationView {
@@ -40,13 +41,22 @@ struct ContentView: View {
                     } label: {
                         Label("Add Item", systemImage: "plus")
                     }
-                    .sheet(isPresented: $showingModal) {
+                    .sheet(isPresented: $showingModal, onDismiss: {
+                        if items.isEmpty { return }
+                        self.showingHowToUse = true
+                    }) {
                         AddWordView()
                                         .environment(\.managedObjectContext, viewContext)
                                 }
                 }
             }
-            Text("Select an item")
+            .sheet(isPresented: $showingHowToUse) {
+                HowToUseView()
+            }
+            .onAppear {
+                if items.isEmpty { return }
+                self.showingHowToUse = true
+            }
         }
     }
 
