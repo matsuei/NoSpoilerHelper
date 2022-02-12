@@ -125,12 +125,12 @@
 				376551CF279CF0F1004577E3 /* NoSpoilerHelperApp.swift */,
 				376551D1279CF0F1004577E3 /* ContentView.swift */,
 				3765520827A6972B004577E3 /* AddWordView.swift */,
+				3765520F27B29B61004577E3 /* HowToUseView.swift */,
 				376551D3279CF0F1004577E3 /* Assets.xcassets */,
 				376551D8279CF0F1004577E3 /* Persistence.swift */,
 				376551DA279CF0F1004577E3 /* NoSpoilerHelper.xcdatamodeld */,
 				376551D5279CF0F1004577E3 /* Preview Content */,
 				37655203279CF252004577E3 /* Item+Extension.swift */,
-				3765520F27B29B61004577E3 /* HowToUseView.swift */,
 			);
 			path = NoSpoilerHelper;
 			sourceTree = "<group>";
