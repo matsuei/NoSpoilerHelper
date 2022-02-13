@@ -18,20 +18,33 @@ struct ContentView: View {
     
     @State private var showingModal = false
     @State private var showingHowToUse = false
+    @State private var hasShownHowToUse = false
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.createdAt!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.word!)
+            ZStack {
+                Text("Add Word From Above Plus Button")
+                if !items.isEmpty {
+                    List {
+                        ForEach(items) { item in
+                            Text(item.word ?? "text")
+                        }
+                        .onDelete(perform: deleteItems)
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        self.showingHowToUse = true
+                    } label: {
+                        Label("Add Item", systemImage: "questionmark")
+                    }
+                    .sheet(isPresented: $showingHowToUse) {
+                        HowToUseView()
+                    }
+                    .disabled(items.isEmpty)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -42,8 +55,9 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                     .sheet(isPresented: $showingModal, onDismiss: {
-                        if items.isEmpty { return }
+                        if items.isEmpty || self.hasShownHowToUse { return }
                         self.showingHowToUse = true
+                        self.hasShownHowToUse = true
                     }) {
                         AddWordView()
                                         .environment(\.managedObjectContext, viewContext)
@@ -52,10 +66,6 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingHowToUse) {
                 HowToUseView()
-            }
-            .onAppear {
-                if items.isEmpty { return }
-                self.showingHowToUse = true
             }
         }
     }

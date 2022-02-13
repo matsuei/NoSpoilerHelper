@@ -12,19 +12,25 @@ struct HowToUseView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
-        VStack {
-            VideoPlayer(player: AVPlayer(url:  Bundle.main.url(forResource: "tutorial", withExtension: "mov")!))
-                .frame(width: 200, height: 420, alignment: .center)
-            Text("Settings > Safari > Extension \nturn on NoSpolierHelper")
-                .font(.title3)
-                .lineSpacing(10)
-            Button(action: {
-                withAnimation {
-                    presentationMode.wrappedValue.dismiss()
+        NavigationView {
+            VStack {
+                VideoPlayer(player: AVPlayer(url:  Bundle.main.url(forResource: "tutorial", withExtension: "mov")!))
+                    .frame(width: 200, height: 420, alignment: .center)
+                Text("Settings > Safari > Extension \nturn on NoSpolierHelper")
+                    .font(.title3)
+                    .lineSpacing(10)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }, label: {
+                        Text("Close")
+                    })
                 }
-            }, label: {
-                Text("Close")
-            })
+            }
         }
     }
 }
